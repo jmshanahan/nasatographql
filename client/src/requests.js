@@ -7,8 +7,26 @@ const endpointURL = "http://localhost:9000/graphql";
     body: JSON.stringify({query,variables})
         });
   const responseBody = await response.json();
+  if(responseBody.errors){
+    const message = responseBody.errors.map((error) => error.message).join('\n');
+    throw new Error(message);
+  }
   return responseBody.data;
 }
+
+
+export async function loadCompany(id){
+  const query = `query CompanyQuery($id: ID!){
+    company(id: $id){
+      id
+      name
+      description 
+    }
+  }`;
+  const {company} = await graphqlRequest(query,{id})
+  return company; 
+}
+
 export async function loadJob(id) {
     const query = `query JobQuery ($id: ID!){
         job(id:$id){
