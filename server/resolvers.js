@@ -6,11 +6,18 @@ const Query = {
     job: (root, {id}) => db.jobs.get(id),
     jobs: () => db.jobs.list()
 };
+
+const Company = {
+    jobs: (company) => {
+        return db.jobs.list().filter((job) => job.companyId === company.id);
+    }
+};
+
 //Return the company whose id is the same id as this job.
 const Job = {
     company: (job) => db.companies.get(job.companyId)
 };
 
 module.exports = {
-    Query, Job
+    Query,  Company,Job
 }
