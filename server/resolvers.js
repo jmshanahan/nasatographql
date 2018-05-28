@@ -7,6 +7,17 @@ const Query = {
     jobs: () => db.jobs.list()
 };
 
+const Mutation = {
+    createJob: (root, {input}, {user}) => {
+        //Check if the user is auth
+        if(!user){
+            throw new Error('Unauthorized');
+        }
+        const id = db.jobs.create(input);
+        return db.jobs.get(id);
+    }
+}
+
 const Company = {
     jobs: (company) => {
         return db.jobs.list().filter((job) => job.companyId === company.id);
@@ -19,5 +30,5 @@ const Job = {
 };
 
 module.exports = {
-    Query,  Company,Job
+    Query,  Mutation, Company,Job
 }
