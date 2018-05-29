@@ -21,10 +21,13 @@ app.use(cors(), bodyParser.json(), expressJwt({
   secret: jwtSecret,
   credentialsRequired: false
 }));
-
+// ES6 Object literal syntax.
+// Check out https://github.com/apollographql/apollo-server
+// for all of the options that can be passed in with graphqlExpress
+// context is just one of many. Docs are poor though
 app.use('/graphql', graphqlExpress((req) => ({
   schema,
-  context: {user: req.user}
+  context: {user: req.user && db.users.get(req.user.sub)}
 })));
 app.use('/graphiql', graphiqlExpress({endpointURL: '/graphql'}));
 
