@@ -22,35 +22,5 @@
     "companyId": "SJV0-wdOM",
     "title": "DevOps Engineer",
     "description": "We need somebody to restart servers"
-  },
-  {
-    "id": "ByQtN9F17",
-    "companyId": "SJV0-wdOM",
-    "title": "DevOps2",
-    "description": "somebody to start devops"
-  },
-  {
-    "id": "r1S_yAKJm",
-    "companyId": "SJV0-wdOM",
-    "title": "Tester",
-    "description": "Good at finding bugs."
-  },
-  {
-    "id": "HJYXFo917",
-    "companyId": "HJRa-DOuG",
-    "title": "acbd4",
-    "description": "secure job"
-  },
-  {
-    "id": "rkhDti5J7",
-    "companyId": "HJRa-DOuG",
-    "title": "acbd4 no company id",
-    "description": "secure job"
-  },
-  {
-    "id": "SyK0qj91Q",
-    "companyId": "HJRa-DOuG",
-    "title": "Product manager",
-    "description": "You need to give the developers work"
   }
 ]
